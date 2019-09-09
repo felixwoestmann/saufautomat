@@ -1,0 +1,38 @@
+<html>
+<body>
+
+  <video id="videoframe" width="1920" height="1080" >
+    <source src="video_test.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+  </video>
+
+  <script>
+console.log("Script started");
+  var myVideo = document.getElementById("videoframe");
+  var source = document.createElement('source');
+
+  function playPause() {
+  if (myVideo.paused)
+    myVideo.play();
+  else
+    myVideo.pause();
+}
+
+function loadRandomVideoAndPlay() {
+if (myVideo.paused)
+  myVideo.play();
+else
+  myVideo.pause();
+}
+
+document.addEventListener("keypress", function(event) {
+  if (event.keyCode == 13) { //Enter Key
+    console.log("Button pressed");
+      playPause();
+  }
+})
+  </script>
+
+
+</body>
+</html>
