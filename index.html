@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<html>
 <body>
 
   <video id="videoframe" width="1920" height="1080" >
@@ -7,13 +7,13 @@
   </video>
 
   <script>
-console.log("Script started");
+  console.log("Script started");
   var video = document.getElementById("videoframe");
   var source = document.getElementById("videosource");
   var videodir="videos/";
   var extension=".mp4";
   var highestVideoNumber=3;
-
+  var lastVideo=-1;
   function playPause() {
   if (video.paused)
     video.play();
@@ -21,12 +21,19 @@ console.log("Script started");
     video.pause();
 }
 
-function loadRandomVideoAndPlay() {
-  console.log("Generate Random Number");
+function generateRandomNumberDifferentFromLastOne() {
   //Generates numbers from 0 - (highestVideoNumber-1) so we add 1
-  var random=Math.floor(Math.random() * highestVideoNumber)+1;
+  var random=lastVideo;
+  do {
+  random= Math.floor(Math.random() * highestVideoNumber)+1;
+  } while (random===lastVideo);
+  console.log("random:"+random+" last:"+lastVideo);
+  lastVideo=random;
+  return random;
+}
+
+function loadRandomVideoAndPlay(random) {
   var newvideo=videodir+random+extension;
-  console.log("Random Number:"+random);
   console.log(newvideo);
     video.pause();
     source.setAttribute('src', newvideo);
@@ -37,7 +44,8 @@ function loadRandomVideoAndPlay() {
 
 document.addEventListener("keypress", function(event) {
   if (event.keyCode == 13) { //Enter Key
-      loadRandomVideoAndPlay();
+    var random=generateRandomNumberDifferentFromLastOne();
+      loadRandomVideoAndPlay(random);
   }
 })
   </script>
