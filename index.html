@@ -2,7 +2,7 @@
 <body>
 
   <video id="videoframe" width="1920" height="1080" >
-    <source id="videosource" src="1.mp4" type="video/mp4">
+    <source id="videosource" src="videos/1.mp4" type="video/mp4">
   Your browser does not support the video tag.
   </video>
 
@@ -10,8 +10,10 @@
 console.log("Script started");
   var video = document.getElementById("videoframe");
   var source = document.getElementById("videosource");
+  var videodir="videos/";
+  var extension=".mp4";
   var highestVideoNumber=3;
-  var newvideo="2.mp4";
+
   function playPause() {
   if (video.paused)
     video.play();
@@ -23,6 +25,7 @@ function loadRandomVideoAndPlay() {
   console.log("Generate Random Number");
   //Generates numbers from 0 - (highestVideoNumber-1) so we add 1
   var random=Math.floor(Math.random() * highestVideoNumber)+1;
+  var newvideo=videodir+random+extension;
   console.log("Random Number:"+random);
   console.log(newvideo);
     video.pause();
