@@ -1,34 +1,40 @@
-<html>
+<!DOCTYPE html>
 <body>
 
   <video id="videoframe" width="1920" height="1080" >
-    <source src="video_test.mp4" type="video/mp4">
+    <source id="videosource" src="1.mp4" type="video/mp4">
   Your browser does not support the video tag.
   </video>
 
   <script>
 console.log("Script started");
-  var myVideo = document.getElementById("videoframe");
-  var source = document.createElement('source');
-
+  var video = document.getElementById("videoframe");
+  var source = document.getElementById("videosource");
+  var highestVideoNumber=3;
+  var newvideo="2.mp4";
   function playPause() {
-  if (myVideo.paused)
-    myVideo.play();
+  if (video.paused)
+    video.play();
   else
-    myVideo.pause();
+    video.pause();
 }
 
 function loadRandomVideoAndPlay() {
-if (myVideo.paused)
-  myVideo.play();
-else
-  myVideo.pause();
+  console.log("Generate Random Number");
+  //Generates numbers from 0 - (highestVideoNumber-1) so we add 1
+  var random=Math.floor(Math.random() * highestVideoNumber)+1;
+  console.log("Random Number:"+random);
+  console.log(newvideo);
+    video.pause();
+    source.setAttribute('src', newvideo);
+    video.load();
+    //videocontainer.setAttribute('poster', newposter); //Changes video poster image
+    video.play();
 }
 
 document.addEventListener("keypress", function(event) {
   if (event.keyCode == 13) { //Enter Key
-    console.log("Button pressed");
-      playPause();
+      loadRandomVideoAndPlay();
   }
 })
   </script>
