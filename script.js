@@ -53,4 +53,3 @@ document.addEventListener("keypress", function(event) {
 })
 //TODO
 // Fit Screen Size
-// Show thumbnail again after video is finished

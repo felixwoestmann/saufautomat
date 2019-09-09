@@ -1,7 +1,19 @@
 <html>
+<head>
+  <style>
+body {background-color: black;}
+video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+</style>
+</head>
 <body onload="setUpVideo()">
 
-  <video id="videoframe" width="1920" height="1080" poster="thumbnail.png">
+  <video id="videoframe"  poster="thumbnail.png">
     <source id="videosource" type="video/mp4">
   Your browser does not support the video tag.
   </video>
