@@ -1,11 +1,13 @@
+//Constants
+const videodir="videos/";
+const extension=".mp4";
+const thumbnail="thumbnail.png";
+const highestVideoNumber=6;
+const numberOfRecentVideos=3;
+//Variables
+var lastVideos=new Array();
 var video = document.getElementById("videoframe");
 var source = document.getElementById("videosource");
-var videodir="videos/";
-var extension=".mp4";
-var thumbnail="thumbnail.png";
-var highestVideoNumber=6;
-var lastVideos=new Array();
-var numberOfRecentVideos=3;
 
 function generateRandomNumberDifferentFromRecentVideos() {
 //Generates numbers from 0 - (highestVideoNumber-1) so we add 1
@@ -36,14 +38,19 @@ function addRecentVideoToArray(recentvideo) {
 
 
 document.addEventListener("keypress", function(event) {
-if (event.keyCode == 13) { //Enter Key
-  var random=generateRandomNumberDifferentFromRecentVideos();
-  console.log(lastVideos.toString());
-    loadVideoAndPlay(random);
+  //Video has ended won't work for the first pressed button
+  //so use source as flag if we are at the first video or later ones
+  var currentSource=source.getAttribute("src");
+if(currentSource==null||video.ended) {
+  if (event.keyCode == 13) { //Enter Key
+    var random=generateRandomNumberDifferentFromRecentVideos();
+    console.log(lastVideos.toString());
+      loadVideoAndPlay(random);
+
 }
+}
+
 })
 //TODO
 // Fit Screen Size
-// Thumbnail with instruction!
-// First just Thumbnail
 // Just take input when video is finished
