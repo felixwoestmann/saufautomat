@@ -2,6 +2,7 @@ var video = document.getElementById("videoframe");
 var source = document.getElementById("videosource");
 var videodir="videos/";
 var extension=".mp4";
+var thumbnail="thumbnail.png";
 var highestVideoNumber=6;
 var lastVideos=new Array();
 var numberOfRecentVideos=3;
@@ -44,4 +45,5 @@ if (event.keyCode == 13) { //Enter Key
 //TODO
 // Fit Screen Size
 // Thumbnail with instruction!
-// Queue for more diversity
+// First just Thumbnail
+// Just take input when video is finished
