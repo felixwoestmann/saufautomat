@@ -53,4 +53,4 @@ if(currentSource==null||video.ended) {
 })
 //TODO
 // Fit Screen Size
-// Just take input when video is finished
+// Show thumbnail again after video is finished
