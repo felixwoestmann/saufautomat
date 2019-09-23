@@ -1,8 +1,8 @@
 //Constants
 const VIDEODIR = "videos/";
 const EXTENSION = ".mp4";
-const HIGHESTVIDEONR = 6;
-const RECENTVIDEOSIZE = 3;
+const HIGHESTVIDEONR = 47;
+const RECENTVIDEOSIZE = Math.floor(HIGHESTVIDEONR/2);
 //Variables
 var lastVideos = new Array();
 var video = document.getElementById("videoframe");
