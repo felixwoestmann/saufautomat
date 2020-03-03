@@ -2,7 +2,7 @@
 const PICTURE_DIRECTORY = "pictures/";
 const FILE_EXTENSION = ".jpg";
 const HIGHEST_PICTURE = 11;
-const MAX_TIMES_TO_DISPLAY=3;
+const MAX_TIMES_TO_DISPLAY=9;
 
 //Variables
 var picture_display_counter = new Array(HIGHEST_PICTURE);
@@ -41,7 +41,6 @@ function generateRandomNumberWithoutViolatingMaxTimesDisplay() {
   var random = -1;
   do {
     random = Math.floor(Math.random() * HIGHEST_PICTURE) + 1;
-    console.log("Choose Random Nr");
   } while (picture_display_counter[random-1]>=MAX_TIMES_TO_DISPLAY);
   picture_display_counter[random-1] += 1;
   return random;
@@ -62,6 +61,7 @@ function chooseAndDisplayImage() {
     console.log("\t"+picture_display_counter);
     console.log("\tDisplay Thumbnail")
     console.log("\n\nReload Required")
+    alert("Seite muss neu geladen werden um sie zurückzusetzen!");
     img_container.setAttribute("src","thumbnail.png");
   }
 
