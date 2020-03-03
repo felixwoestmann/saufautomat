@@ -2,25 +2,17 @@
 <head>
   <style>
 body {background-color: black;}
-video {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
+
 </style>
 </head>
-<body onload="setUpVideo()">
 
-  <video id="videoframe"  poster="thumbnail.png">
-    <source id="videosource" type="video/mp4">
-  Your browser does not support the video tag.
-  </video>
-
-  <script src="script.js">
-  </script>
-
-
+  <img id="img_container" src="thumbnail.png"  class="center">
+  <script src="script.js"></script>
 </body>
 </html>

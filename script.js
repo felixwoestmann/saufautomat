@@ -1,12 +1,12 @@
 //Constants
-const VIDEODIR = "videos/";
-const EXTENSION = ".mp4";
-const HIGHESTVIDEONR = 47;
-const RECENTVIDEOSIZE = Math.floor(HIGHESTVIDEONR/2);
+const PICDIR = "pictures/";
+const EXTENSION = ".jpg";
+const HIGHESTPICNR = 11;
+
 //Variables
-var lastVideos = new Array();
-var video = document.getElementById("videoframe");
-var source = document.getElementById("videosource");
+var pic_counter = new Array(HIGHESTPICNR);
+var img_container = document.getElementById("img_container");
+
 
 function generateRandomNumberDifferentFromRecentVideos() {
   //Generates numbers from 0 - (highestVideoNumber-1) so we add 1
@@ -25,31 +25,18 @@ function loadVideo(filename) {
   video.load();
 }
 
-function addRecentVideoToArray(recentvideo) {
-  if (lastVideos.length >= RECENTVIDEOSIZE) {
-    lastVideos.shift();
-  }
-  lastVideos.push(recentvideo);
+
+
+function chooseAndDisplayImage() {
+  img_container.setAttribute("src","pictures/1.jpg");
 }
 
-video.onended = function() {
-  setUpVideo();
-};
-
-function setUpVideo() {
-  //Ist das aktuelle Video geendet, so suche ein neues aus und bereite es vor
-  loadVideo(generateRandomNumberDifferentFromRecentVideos());
-}
 document.addEventListener("keypress", function(event) {
   //Only take keypresses, when video is fully prepared
-  if (video.readyState == 4) {
+
     if (event.keyCode == 13) { //Enter Key
-      video.play();
-    }
-  } else {
-    console.log("Video is not finished. Keypress discarded");
+      chooseAndDisplayImage();
   }
 
 })
-//TODO
-// Fit Screen Size
+
