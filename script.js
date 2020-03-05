@@ -7,6 +7,7 @@ const MAX_TIMES_TO_DISPLAY=9;
 //Variables
 var picture_display_counter = new Array(HIGHEST_PICTURE);
 var img_container = document.getElementById("img_container");
+var is_timeout_phased=true;
 
 //Is called onLoad()
 function init() {
@@ -67,12 +68,22 @@ function chooseAndDisplayImage() {
 
 }
 
+function invokeTimeout() {
+  img_container.setAttribute("src","thumbnail.png");
+  is_timeout_phased=true;
+}
+
 document.addEventListener("keypress", function(event) {
   //Only take keypresses, when video is fully prepared
-    console.log("Enter Press detected:");
     if (event.keyCode == 13) { //Enter Key
-      chooseAndDisplayImage();
-  }
-
+      console.log("Enter Press detected:");
+      if(is_timeout_phased){
+        is_timeout_phased=false;
+        chooseAndDisplayImage(); 
+        setTimeout(invokeTimeout,3000);
+      }else {
+        console.log("\tWon't accept KeyPress due to timeout")
+      }
+    }
 })
 
