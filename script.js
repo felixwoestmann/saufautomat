@@ -1,6 +1,6 @@
 //Constants
 const PICTURE_DIRECTORY = "pictures/";
-const FILE_EXTENSION = ".jpg";
+const FILE_EXTENSION = "_500px.jpg";
 const HIGHEST_PICTURE = 11;
 const MAX_TIMES_TO_DISPLAY = 9;
 
@@ -79,7 +79,7 @@ document.addEventListener("keypress", function(event) {
     if (is_timeout_phased) {
       is_timeout_phased = false;
       chooseAndDisplayImage();
-      setTimeout(invokeTimeout, 3000);
+      setTimeout(invokeTimeout, 1500);
     } else {
       console.log("\tWon't accept KeyPress due to timeout");
     }

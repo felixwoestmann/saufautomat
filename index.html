@@ -4,16 +4,27 @@
       body {
         background-color: black;
       }
+      .container {
+        height: 100%;
+        position: relative;
+      }
       .center {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 50%;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
       }
     </style>
   </head>
   <body onload="init()">
-    <img id="img_container" src="thumbnail.png" class="center" />
+    <div class="container">
+      <div class="center">
+        <img id="img_container" src="thumbnail.png" />
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
